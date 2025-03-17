@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 class Qucikadmin{
 
     /**
@@ -1106,6 +1107,40 @@ class Qucikadmin{
             'ajax_url' => admin_url( 'admin-ajax.php' ),
             'nonce' => wp_create_nonce( 'qvt_nonce' ),
             'logo_url' => $logo_url
+        ));
+
+
+        wp_enqueue_script('help-popup-js', plugin_dir_url(dirname(__FILE__)) . 'Assets/js/help-popup.js', array(), '1.0', true);
+
+        $templateImages = array(
+            'template_1' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/template_1.png'),
+            'template_2' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/template_2.png'),
+            'template_3' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/template_3.png'),
+            'template_4' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/template_4.png'),
+        );
+
+        $listTemplateImages = array(
+            'template_1' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/list_template_1.png'),
+            'template_2' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/list_template_2.png'),
+        );
+
+        $addToCartTemplateImages = array(
+            'template_1' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/table_template2_add_cart_template1.png'),
+            'template_2' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/table_template2_add_cart_template2.png'),
+        );
+
+        $tableTemplateImages = array(
+            'template_1' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/variation-table-template1.png'),
+            'template_2' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/variation-table-template2.png'),
+        );
+
+        // Localize script to pass PHP data to JavaScript
+        wp_localize_script('help-popup-js', 'helpPopupVars', array(
+            'imageUrl' => esc_url(plugin_dir_url(dirname(__FILE__)) . 'Assets/images/help-quick-cart.png'),
+             'templateImages' => $templateImages,
+             'listTemplateImages' => $listTemplateImages,
+             'addToCartTemplateImages' => $addToCartTemplateImages,
+             'tableTemplateImages' => $tableTemplateImages,
         ));
     }
 

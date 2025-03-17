@@ -496,3 +496,341 @@ jQuery(document).ready(function ($) {
 // });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    var helpButton = document.querySelector('.help-button');
+    var helpImageContainer = document.querySelector('.help-image');
+    var popup = document.getElementById('popup-container');
+    var closeBtn = document.querySelector('.close');
+
+    helpButton.addEventListener('click', function() {
+        // Clear existing content to avoid duplicating the image
+        helpImageContainer.innerHTML = '';
+
+        // Remove the extra popupImage if it exists
+        var extraImage = document.getElementById('popupImage');
+        if (extraImage) {
+            extraImage.remove();
+        }
+
+        // Dynamically create and insert the image
+        var img = document.createElement('img');
+        img.src = helpPopupVars.imageUrl; // Use localized variable
+        img.alt = "Quick Cart Help Image";
+
+        helpImageContainer.appendChild(img);
+        popup.style.display = 'flex'; // Show the popup
+    });
+
+    closeBtn.addEventListener('click', function() {
+        popup.style.display = 'none'; // Hide the popup
+    });
+
+    // Close popup when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            popup.style.display = 'none'; // Hide the popup
+        }
+    });
+});
+
+
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const selectElement = document.getElementById('select-design');
+    const designTemplateContainer = document.getElementById('show-template-image');
+    const closeButtons = document.querySelectorAll('.close-design');
+    const designTemplates = document.querySelectorAll('.design-template');
+
+    // Template image paths
+    const templateImages = helpPopupVars.templateImages;
+
+
+    // Function to dynamically create and display the selected template image
+    function updateImageDisplay() {
+        const selectedValue = selectElement.value;
+
+        // Clear any existing image inside the design template container
+        designTemplateContainer.innerHTML = `
+            <div class="design-template">
+                <div style="display: flex; justify-content: end">
+                    <span class="close-design">&times;</span>
+                </div>
+            </div>
+        `;
+
+        // Create the image element dynamically
+        if (templateImages[selectedValue]) {
+            const img = document.createElement('img');
+            img.src = templateImages[selectedValue];
+            img.alt = `${selectedValue} image`;
+            img.style.display = 'block';
+
+            // Customize styles for specific templates (if needed)
+            if (selectedValue === 'template_3') {
+                img.style.height = '200px';
+                img.style.width = '400px';
+            }
+
+            // Append the image to the design template container
+            const designTemplate = designTemplateContainer.querySelector('.design-template');
+            designTemplate.appendChild(img);
+
+            // Add close functionality to the new close button
+            const closeButton = designTemplate.querySelector('.close-design');
+            closeButton.addEventListener('click', function () {
+                designTemplate.style.display = 'none';
+            });
+        }
+    }
+
+    // Initial update
+    updateImageDisplay();
+
+    // Listen for changes in the select dropdown
+    selectElement.addEventListener('change', updateImageDisplay);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const selectElement = document.getElementById('select-design-list');
+    const designTemplateContainer = document.getElementById('show-template-image-list');
+    const closeButtons = document.querySelectorAll('.close-design');
+    const designTemplates = document.querySelectorAll('.design-template');
+
+    // Template image paths
+    const templateImages = helpPopupVars.listTemplateImages;
+
+    // Function to dynamically create and display the selected template image
+    function updateImageDisplay() {
+        const selectedValue = selectElement.value;
+
+        // Clear any existing image inside the design template container
+        designTemplateContainer.innerHTML = `
+            <div class="design-template">
+                <div style="display: flex; justify-content: end">
+                    <span class="close-design">&times;</span>
+                </div>
+            </div>
+        `;
+
+        // Create the image element dynamically
+        if (templateImages[selectedValue]) {
+            const img = document.createElement('img');
+            img.src = templateImages[selectedValue];
+            img.alt = `${selectedValue} image`;
+            img.style.display = 'block';
+
+            // Customize styles for specific templates (if needed)
+            if (selectedValue === 'template_1' || selectedValue === 'template_2') {
+                img.style.height = '200px';
+                img.style.width = '400px';
+            }
+
+            // Append the image to the design template container
+            const designTemplate = designTemplateContainer.querySelector('.design-template');
+            designTemplate.appendChild(img);
+
+            // Add close functionality to the new close button
+            const closeButton = designTemplate.querySelector('.close-design');
+            closeButton.addEventListener('click', function () {
+                designTemplate.style.display = 'none';
+            });
+        }
+    }
+
+    // Initial update
+    updateImageDisplay();
+
+    // Listen for changes in the select dropdown
+    selectElement.addEventListener('change', updateImageDisplay);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const selectElement = document.getElementById('select-design-add-cart-table-template2');
+    const designTemplateContainer = document.getElementById('show-design-add-cart-table-template2');
+    const closeButtons = document.querySelectorAll('.close-design');
+    const designTemplates = document.querySelectorAll('.design-template');
+
+    // Template image paths
+    const templateImages = helpPopupVars.addToCartTemplateImages;
+
+    // Function to dynamically create and display the selected template image
+    function updateImageDisplay() {
+        const selectedValue = selectElement.value;
+
+        // Clear any existing image inside the design template container
+        designTemplateContainer.innerHTML = `
+            <div class="design-template">
+                <div style="display: flex; justify-content: end">
+                    <span class="close-design">&times;</span>
+                </div>
+            </div>
+        `;
+
+        // Create the image element dynamically
+        if (templateImages[selectedValue]) {
+            const img = document.createElement('img');
+            img.src = templateImages[selectedValue];
+            img.alt = `${selectedValue} image`;
+            img.style.display = 'block';
+
+            // Customize styles for specific templates (if needed)
+            if (selectedValue === 'template_3') {
+                img.style.height = '200px';
+                img.style.width = '400px';
+            }
+
+            // Append the image to the design template container
+            const designTemplate = designTemplateContainer.querySelector('.design-template');
+            designTemplate.appendChild(img);
+
+            // Add close functionality to the new close button
+            const closeButton = designTemplate.querySelector('.close-design');
+            closeButton.addEventListener('click', function () {
+                designTemplate.style.display = 'none';
+            });
+        }
+    }
+
+    // Initial update
+    updateImageDisplay();
+
+    // Listen for changes in the select dropdown
+    selectElement.addEventListener('change', updateImageDisplay);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const selectElement = document.getElementById('select-design-variation-table-template');
+    const designTemplateContainer = document.getElementById('show-design-variation-table-template');
+    const template2Options = document.getElementById('variation-table-template2-options');
+    const template1Options = document.getElementById('variation-table-template1-options');
+    const tableTemplate2CartDesign = document.getElementById('variation-table-template2-cart-design');
+    const variationGalleryCheckbox = document.getElementById('variation-gallery-on-off');
+    const showGalleryImageIntoPopup = document.getElementById('show-gallery-image-into-popup');
+    const badgeAllSettings = document.getElementById('badge-all-settings');
+    const discountBadge = document.getElementById('discount-badge');
+
+
+    // Function to toggle the display
+    function toggleDiscountBadge() {
+        if (discountBadge.checked) {
+            badgeAllSettings.style.display = '';
+        } else {
+            badgeAllSettings.style.display = 'none';
+        }
+    }
+
+    // Initial state check
+    toggleDiscountBadge();
+
+    // Event listener for changes
+    discountBadge.addEventListener('change', toggleDiscountBadge);
+
+
+    // Function to toggle the display
+    function toggleShowGalleryWrapper() {
+        if (variationGalleryCheckbox.checked) {
+            showGalleryImageIntoPopup.style.display = 'flex';
+        } else {
+            showGalleryImageIntoPopup.style.display = 'none';
+        }
+    }
+
+    // Initial state check
+    toggleShowGalleryWrapper();
+
+    // Event listener for changes
+    variationGalleryCheckbox.addEventListener('change', toggleShowGalleryWrapper);
+
+
+    // Function to toggle display of Template 2 options
+    function toggleTemplateOptions() {
+        if (selectElement.value === 'template_2') {
+            template2Options.style.display = 'block';
+            tableTemplate2CartDesign.style.display = 'block';
+        } else {
+            template2Options.style.display = 'none';
+            tableTemplate2CartDesign.style.display = 'none';
+        }
+        if (selectElement.value === 'template_1') {
+            template1Options.style.display = 'block';
+        } else {
+            template1Options.style.display = 'none';
+        }
+    }
+
+    // Initialize visibility on page load
+    toggleTemplateOptions();
+
+    // Add event listener to update visibility when selection changes
+    selectElement.addEventListener('change', toggleTemplateOptions);
+
+    // Template image paths
+    const templateImages = helpPopupVars.tableTemplateImages;
+
+    // Function to dynamically create and display the selected template image
+    function updateImageDisplay() {
+        const selectedValue = selectElement.value;
+
+        // Clear any existing image inside the design template container
+        designTemplateContainer.innerHTML = `
+            <div class="design-template-variation-table-template">
+                <div style="display: flex; justify-content: end">
+                    <span class="close-design-variation-table-template">&times;</span>
+                </div>
+            </div>
+        `;
+
+        // Create the image element dynamically
+        if (templateImages[selectedValue]) {
+            const img = document.createElement('img');
+            img.src = templateImages[selectedValue];
+            img.alt = `${selectedValue} image`;
+            img.style.display = 'block';
+
+            // Customize styles for specific templates (if needed)
+            if (selectedValue === 'template_1' || selectedValue === 'template_2') {
+                img.style.height = '200px';
+                img.style.width = '400px';
+            }
+
+            // Append the image to the design template container
+            const designTemplate = designTemplateContainer.querySelector('.design-template-variation-table-template');
+            designTemplate.appendChild(img);
+
+            // Add close functionality to the new close button
+            const closeButton = designTemplate.querySelector('.close-design-variation-table-template');
+            closeButton.addEventListener('click', function () {
+                designTemplate.style.display = 'none';
+            });
+        }
+    }
+
+    // Initial update
+    updateImageDisplay();
+
+    // Listen for changes in the select dropdown
+    selectElement.addEventListener('change', updateImageDisplay);
+});

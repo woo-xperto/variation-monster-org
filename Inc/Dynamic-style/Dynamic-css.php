@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 class QuickDynamicStyle{
 
     public function __construct(){
