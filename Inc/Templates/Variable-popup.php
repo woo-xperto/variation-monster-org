@@ -86,38 +86,3 @@ $quickCartIconImageLink  = isset($variableSettings['quickCartIconImageLink']) ? 
         <div class="shop-page-show-failed-message"></div>
     </div>
 </div>
-
-<style>
-
-    .quick-add-to-cart-shop-page.loading .fa-cart-plus,
-    .quick-add-to-cart-shop-page.loading span {
-        display: none; /* Hide the default icon and text when loading */
-    }
-
-</style>
-
-<script>
-    jQuery(document).ready(function ($) {
-        $('.image-shop-page').each(function () {
-            var div = $(this);
-
-            // Get the attributes from the div
-            var src = div.attr('src');
-            var alt = div.attr('alt');
-            var style = div.attr('style');
-            var className = div.attr('class');
-
-            // Create an <img> element with the same attributes
-            var img = $('<img>', {
-                src: src,
-                alt: alt,
-                style: style,
-                class: className.replace('image-shop-page', '').trim() // Remove "image-shop-page" class if not needed
-            });
-
-            // Replace the <div> with the <img>
-            div.replaceWith(img);
-        });
-    });
-
-</script>
