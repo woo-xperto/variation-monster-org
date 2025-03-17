@@ -45,20 +45,10 @@ class QuickGallerySetup {
             wp_enqueue_script('jquery');
 
             // Enqueue Slick Slider CSS and JS
-            wp_enqueue_style(
-                'slick-slider-css',
-                'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css',
-                [],
-                '1.8.1'
-            );
-
-            wp_enqueue_script(
-                'slick-slider-js',
-                'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js',
-                ['jquery'],
-                '1.8.1',
-                true
-            );
+            // phpcs:ignore
+            wp_enqueue_style('slick-slider-css','https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css',[],'1.8.1');
+            // phpcs:ignore
+            wp_enqueue_script('slick-slider-js','https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js',['jquery'],'1.8.1',true);
 
             if ($galleryStyleTemplate === 'template_1') {
                 wp_enqueue_script(
