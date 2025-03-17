@@ -36,7 +36,8 @@ class Quickvariables
                             add_action( 'woocommerce_before_add_to_cart_button', function() {
                                 global $product;
                                 if ( $product->is_type( 'variable' ) ) {
-                                    print_r (apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', '', [
+                                    // phpcs:ignore
+                                    echo (apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', '', [
                                         'attribute' => '',
                                         'options'   => wc_get_product_terms( $product->get_id(), '', [ 'fields' => 'ids' ] ),
                                         'product'   => $product,
@@ -50,7 +51,8 @@ class Quickvariables
                             add_action( 'woocommerce_before_add_to_cart_button', function() {
                                 global $product;
                                 if ( $product->is_type( 'variable' ) ) {
-                                    print_r(apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', '', [
+                                    // phpcs:ignore
+                                    echo (apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', '', [
                                         'attribute' => '',
                                         'options'   => wc_get_product_terms( $product->get_id(), '', [ 'fields' => 'ids' ] ),
                                         'product'   => $product,
@@ -67,7 +69,8 @@ class Quickvariables
                             add_action( 'woocommerce_before_add_to_cart_button', function() {
                                 global $product;
                                 if ( $product->is_type( 'variable' ) ) {
-                                    print_r (apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', '', [
+                                    // phpcs:ignore
+                                    echo (apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', '', [
                                         'attribute' => '',
                                         'options'   => wc_get_product_terms( $product->get_id(), '', [ 'fields' => 'ids' ] ),
                                         'product'   => $product,
@@ -81,7 +84,8 @@ class Quickvariables
                             add_action( 'woocommerce_before_add_to_cart_button', function() {
                                 global $product;
                                 if ( $product->is_type( 'variable' ) ) {
-                                    print_r (apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', '', [
+                                  // phpcs:ignore
+                                    echo (apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', '', [
                                         'attribute' => '',
                                         'options'   => wc_get_product_terms( $product->get_id(), '', [ 'fields' => 'ids' ] ),
                                         'product'   => $product,
